@@ -1,9 +1,9 @@
 package com.nagarro.serviceimpl;
 
-import com.nagarro.model.User;
+import com.nagarro.model.UserModel;
 
 public interface UserService {
 	
-	public User getUser(String email_id);
+	public UserModel getUser(String email_id);
 
 }

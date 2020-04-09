@@ -1,22 +1,29 @@
 package com.nagarro.service;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.nagarro.model.User;
-import com.nagarro.repository.UserRepository;
+import com.nagarro.entity.user;
+import com.nagarro.model.UserModel;
+import com.nagarro.repository.UserRepositoryInterface;
 import com.nagarro.serviceimpl.UserService;
 
 @Service
 public class UserServiceImpl implements UserService{
 
 	@Autowired
-	private UserRepository userRepository;
+	private UserRepositoryInterface userRepository;
 
-	public User getUser(String email_id) {
-		// TODO Auto-generated method stub
-		return userRepository.getUser(email_id);
+	public UserModel getUser(String email_id) {
+		user user = userRepository.findById(email_id).get();
+		return new UserModel(user.getName(), user.getEmail());
+		
+
 	}
+
 	
 	
 
