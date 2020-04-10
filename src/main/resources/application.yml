@@ -1,8 +1,20 @@
 spring:
   application:
     name: user
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://mysql-h:3306/nagp_microservices
+    username: root
+    password: password
+  jpa:
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+server:
+  port: 8090
 opentracing: 
   jaeger:
     udp-sender:
       host: jaeger
       port: 6831
+
